@@ -1,0 +1,42 @@
+.header-principal{
+    background-image: url('./bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
+    background-color: #000;
+}
+.header-principal-firstcontainer{
+    margin: 0 auto;
+    padding: 5rem 16rem;
+}
+
+.header-principal-secondcontainer{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+}
+.logo{
+    width:8rem;
+}
+
+.main-principal{
+    margin: 0 auto;
+    padding: 4rem;
+}
+
+.navegacion{
+    display: flex;
+    gap: 2rem;
+}
+
+.link{
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.active-link{
+    color:orange;
+    text-transform: uppercase;
+    font-weight:bold;
+}
+@import "tailwindcss";

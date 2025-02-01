@@ -1,0 +1,8 @@
+Es una de las librerías más comunes a la hora de crear aplicaciones de multiples páginas y navegación
+
+Permite crear secciones con diferentes urls tales como /tienda, /productos, /login, etc
+
+BrowserRouter: Permite crear el Router, es el principal y rodea a routes y route
+Routes: Grupo de rutas
+Route: Rutas individuales, te permite agrupar ciertas rutas, path es un prop que se le pasa a route y es basicamente la url que el usuario va a visitar y entonces se carga determinada página
+element es el componente que se va a cargar 
