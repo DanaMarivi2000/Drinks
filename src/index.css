@@ -3,6 +3,8 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position:center;
+}
+.header-alternative{
     background-color: #000;
 }
 .header-principal-firstcontainer{
@@ -38,5 +40,55 @@
     color:orange;
     text-transform: uppercase;
     font-weight:bold;
+}
+.formulario{
+    background-color: orange;
+    margin:2rem 0;
+    padding:1rem;
+    border-radius: 1rem; 
+    box-shadow: 0.5rem 0.5rem 0.5rem black;    
+
+}
+
+@media (min-width:768px) {
+    .formulario{
+        width: 50%;
+    }
+}
+@media (min-width:1536px){
+    .formulario{
+        width:33.33%;
+    }
+}
+.formulario__container{
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+}
+.formulario__label{
+    color: text-white;
+    text-transform: uppercase;
+    font-weight:bolder;
+    font-size: 0.8rem;
+}
+.formulario__input, .formulario__select{
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color:black;
+}
+.formulario__button{
+    background-color: rgba(248, 123, 7, 0.897);
+    cursor:pointer;
+    color: white;
+    font-weight: bolder;
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    text-transform:uppercase;
+    margin:0.8rem 0 0;
+}
+.formulario__button:hover{
+    background-color: rgba(248, 123, 7, 0.5);
 }
 @import "tailwindcss";

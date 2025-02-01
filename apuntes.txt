@@ -6,3 +6,7 @@ BrowserRouter: Permite crear el Router, es el principal y rodea a routes y route
 Routes: Grupo de rutas
 Route: Rutas individuales, te permite agrupar ciertas rutas, path es un prop que se le pasa a route y es basicamente la url que el usuario va a visitar y entonces se carga determinada página
 element es el componente que se va a cargar 
+useLocation() Es un hook de react router dom, nos da un objeto con información como el hash, key, pathname, search, state IDENTIFICAR DONDE SE ENCUENTRA EL USUARIO ACTUAL  
+Pathname es la ubicación, de que pagina nos encontramos /Identifica la página en la cual estamos
+search sistema de busquedas
+state: puede haber state también en las Rutas
