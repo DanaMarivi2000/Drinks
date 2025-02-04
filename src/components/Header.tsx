@@ -1,10 +1,19 @@
-import { useMemo } from "react"
+import { useEffect, useMemo } from "react"
 import {NavLink, useLocation } from "react-router-dom"
+import { useAppStore } from "../stores/useApStore"
+
 const Header = () => {
 
   const{pathname}=useLocation()
   const location=useMemo(()=>pathname==="/",[pathname])
   console.log(location)
+
+  const {fetchDrinks, categories}=useAppStore()
+
+  useEffect(()=>{
+    fetchDrinks()
+  },[])
+
   return (
     <header className={location?'header-principal':'header-alternative'}>
       <div className='header-principal-firstcontainer'>
@@ -28,6 +37,9 @@ const Header = () => {
               <label htmlFor="category" className="formulario__label">Categoría</label>
               <select className="formulario__select" id="category">
                 <option value="">-- Seleccione --</option>
+                {categories.map(category=>(
+                  <option key={category.strCategory}>{category.strCategory}</option>
+                ))}
               </select>
             </div>
             <input type="submit" value='Buscar Recetas' className="formulario__button" />

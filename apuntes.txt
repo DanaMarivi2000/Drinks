@@ -9,4 +9,6 @@ element es el componente que se va a cargar
 useLocation() Es un hook de react router dom, nos da un objeto con información como el hash, key, pathname, search, state IDENTIFICAR DONDE SE ENCUENTRA EL USUARIO ACTUAL  
 Pathname es la ubicación, de que pagina nos encontramos /Identifica la página en la cual estamos
 search sistema de busquedas
-state: puede haber state también en las Rutas
+state: puede haber state también en las RutasEl Virtual DOM es una representación ligera del DOM real que React utiliza para hacer las actualizaciones de manera más eficiente.
+¿Qué es un componente de orden superior (HOC)? b) Un componente que devuelve otro componente
+Slice Pattern es una forma de dividir tus stores en pequeñas piezas y unirlas en un store principal
