@@ -9,6 +9,7 @@ type Category=z.infer<typeof recipeSliceSchema>
 export type RecipesSliceType={
   categories:Category,
   recipes:getRecipesList,
+  loading:boolean,
   fetchDrinks:()=>Promise<void>,
   searchRecipes: (searchRecipes: recipes) => Promise<void>
 }
@@ -19,6 +20,7 @@ export const createRecipesSlice:StateCreator<RecipesSliceType>=(set)=>({ //permi
     recipes:{
       drinks:[]
     },
+    loading:false,
 
     fetchDrinks:async()=>{
        const drinksList=await getListDrinks()
@@ -28,10 +30,14 @@ export const createRecipesSlice:StateCreator<RecipesSliceType>=(set)=>({ //permi
       },
       
       searchRecipes:async(searchRecipes)=>{
+        set(()=>({
+          loading:true,
+        }))
         const recipesList=await getRecipes(searchRecipes)
         console.log(recipesList)
         set(()=>({
-          recipes:recipesList
+          recipes:recipesList,
+          loading:false
         }))
 }
 })

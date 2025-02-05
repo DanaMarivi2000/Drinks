@@ -1,16 +1,17 @@
 import { useAppStore } from "../stores/useApStore"
 import { useMemo } from "react"
 import DrinkCard from "../components/DrinkCard"
+import Spinner from "../components/Spinner"
 
 const IndexPage = () => {
 
 
-const {recipes}=useAppStore()
+const {recipes,loading}=useAppStore()
 const hasDrinks=useMemo(()=>recipes.drinks.length,[recipes])
   return (
     <>
     <h1 className="principal__title">Recetas</h1>
-    {hasDrinks?
+    {loading?<Spinner/>:hasDrinks?
     <div  className="recipes">
     {recipes.drinks.map(recipe=>(
      <DrinkCard key={recipe.idDrink} drink={recipe}/>
