@@ -7,7 +7,7 @@ const IndexPage = () => {
 
 
 const {recipes,loading}=useAppStore()
-const hasDrinks=useMemo(()=>recipes.drinks.length,[recipes])
+const hasDrinks=useMemo(()=>recipes.drinks.length>1,[recipes])
   return (
     <>
     <h1 className="principal__title">Recetas</h1>

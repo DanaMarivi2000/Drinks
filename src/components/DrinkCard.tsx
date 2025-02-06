@@ -1,8 +1,10 @@
+import { useAppStore } from "../stores/useApStore"
 import { recipe } from "../types"
 type drink={
     drink:recipe
 }
 const DrinkCard = ({drink}:drink) => {
+    const{selectRecipe}=useAppStore()
   return (
     <div key={drink.idDrink} className="recipes__container">
         <div className="recipes__container__image">
@@ -10,7 +12,7 @@ const DrinkCard = ({drink}:drink) => {
         </div>
         <div>
     <h2 className="recipes__title">{drink.strDrink}</h2>
-            <button className="recipes__button">
+            <button className="recipes__button" onClick={()=>selectRecipe(drink.idDrink)}>
                 Ver Receta
             </button>
         </div>

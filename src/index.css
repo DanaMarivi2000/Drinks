@@ -186,7 +186,36 @@
     animation-delay: 0.75s;
     background-color: #fb8500;
  }
+ .container__buttons{
+    display: flex;
+    justify-content: space-between;
+    gap:2rem;
+    margin-top:5;
+ }
  
+ .container__cerrar{
+    padding: 0.5rem;
+    font-weight: bold;
+    text-transform:uppercase;
+    color:white;
+    box-shadow: 2px 2px 5px 1px gray;
+    width: 100%;
+    border-radius: 0.5rem;
+    background-color: gray;
+ }
+ .container__cerrar:hover{
+    opacity: 0.5;
+ }
+ .container__favorites{
+    padding: 0.5rem;
+    font-weight: bold;
+    text-transform:uppercase;
+    color:white;
+    box-shadow: 2px 2px 5px 1px orange;
+    width: 100%;
+    border-radius: 0.5rem;
+    background-color: orange;
+ }
  @keyframes spinner-4t3wzl {
     0% {
        transform: rotate(0deg) translateY(-200%);

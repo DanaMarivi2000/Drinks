@@ -1,6 +1,6 @@
 import axios from "axios"
-import { recipeSliceSchema, recipesSchema } from "../utils/recipes-schema";
-import { recipes } from "../types";
+import { recipeSliceSchema, recipesSchema, recipeDetailsSchema } from "../utils/recipes-schema";
+import { recipes, recipe } from "../types";
 export const getListDrinks=async()=>{
     const url='https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list'
 
@@ -29,4 +29,17 @@ export const getRecipes=async(searchRecipes:recipes)=>{
         return recipes
     }
 
+}
+
+export const getRecipeById=async(id:recipe['idDrink'])=>{
+    console.log(id)
+    const {data:{drinks}}=await axios(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`)
+    console.log(drinks)
+    const recipeDetails=recipeDetailsSchema.safeParse(drinks)
+    console.log(recipeDetails)
+    if(recipeDetails.success){
+        const recipeDetailsList=recipeDetails.data
+        console.log(recipeDetailsList)
+        return recipeDetailsList
+    }
 }
