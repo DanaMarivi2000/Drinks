@@ -92,13 +92,13 @@
     background-color: rgba(248, 123, 7, 0.5);
 }
 
-.principal__title{
+.principal__title, .favorites__title{
     font-size:4rem;
     text-align: center;
     font-weight: bolder;
     margin-bottom: 2rem;
 }
-.recipes{
+.recipes,.favorite__container{
     display:grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
@@ -133,7 +133,7 @@
 .notfound{
     margin: 5rem 0;
     text-align: center;
-    font-size:2rem;
+    font-size:1rem;
 }
 .recipes__button{
     background-color: orange;
@@ -216,6 +216,7 @@
     border-radius: 0.5rem;
     background-color: orange;
  }
+
  @keyframes spinner-4t3wzl {
     0% {
        transform: rotate(0deg) translateY(-200%);

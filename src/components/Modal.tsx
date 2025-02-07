@@ -3,7 +3,7 @@ import { Fragment } from 'react';
 import { useAppStore } from '../stores/useApStore';
 import { arrayIngredientsAndMesures } from '../types';
 export default function Modal() {
-    const {modal, closeModal, details}=useAppStore()
+    const {modal, closeModal, details, handleClickFavorite, deleteFavoriteList}=useAppStore()
 
     if (!details.length) {
         return; 
@@ -69,7 +69,7 @@ export default function Modal() {
 
                       <div className="container__buttons">
                           <button className='container__cerrar' onClick={closeModal}>Cerrar</button>
-                          <button className='container__favorites'>Añadir a favoritos</button>
+                          <button className='container__favorites' onClick={()=>handleClickFavorite(details[0])}>{deleteFavoriteList(details[0].idDrink)?'Eliminar de favoritos':'Agregar a favoritos'}</button>
                         </div>
                     </DialogPanel>
                   </TransitionChild>

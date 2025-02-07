@@ -2,9 +2,9 @@ import { StateCreator } from "zustand"
 import { getListDrinks, getRecipes, getRecipeById } from "../services"
 import { z } from "zod"
 import { recipeSliceSchema} from "../utils/recipes-schema"
-import { getRecipesList, recipes, recipe, recipeDetails} from "../types"
+import { Category, getRecipesList, recipes, recipe, recipeDetails} from "../types"
+import { FavoritesSliceType } from "./favoritesSlice"
 
-type Category=z.infer<typeof recipeSliceSchema>
 
 export type RecipesSliceType={
   categories:Category,
@@ -19,7 +19,7 @@ export type RecipesSliceType={
 }
 
 
-export const createRecipesSlice:StateCreator<RecipesSliceType>=(set)=>({ //permite crear el state y especificar que tipo tendra ese store
+export const createRecipesSlice:StateCreator<RecipesSliceType&FavoritesSliceType,[],[],RecipesSliceType>=(set)=>({ //permite crear el state y especificar que tipo tendra ese store
     categories:[],
     recipes:{
       drinks:[{

@@ -38,5 +38,8 @@ export const recipeDetailsSchemaObject=z.object({
     strMeasure6:z.string().nullable(),
 })
 
+export const itemAdd=recipeDetailsSchemaObject.extend({
+    quantity:z.number()
+})
 
 export const recipeDetailsSchema=z.array(recipeDetailsSchemaObject)
