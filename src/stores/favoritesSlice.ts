@@ -1,6 +1,7 @@
 import { StateCreator } from "zustand";
-import {arrayIngredientsAndMesures, itemsAdd} from '../types'
+import { arrayIngredientsAndMesures } from '../types';
 import { createRecipesSlice, RecipesSliceType } from "./recipeSlice";
+import { createNotificationSlice,notificationSliceType } from "./notificationSlice";
 
 export type FavoritesSliceType={
     favorites:arrayIngredientsAndMesures[]
@@ -9,7 +10,7 @@ export type FavoritesSliceType={
     loadFromStorage:()=>void
 }
 
-export const createFavoritesSlice:StateCreator<FavoritesSliceType & RecipesSliceType, [], [], FavoritesSliceType>=(set,get,api)=>({
+export const createFavoritesSlice:StateCreator<FavoritesSliceType & RecipesSliceType & notificationSliceType, [], [], FavoritesSliceType>=(set,get,api)=>({
     
     
     favorites:[],
@@ -20,11 +21,20 @@ export const createFavoritesSlice:StateCreator<FavoritesSliceType & RecipesSlice
             set((state)=>({
                 favorites:state.favorites.filter(favorite=>favorite.idDrink!=recipe.idDrink)
             }))
+            createNotificationSlice(set, get, api).showNotification({
+                text:"Se eliminó de favoritos",
+                error:false
+            })
+            
         }else{
             const itemadd={...recipe,quantity:1}
             set((state)=>({
                 favorites:[...state.favorites, itemadd]
             }))
+            createNotificationSlice(set, get, api).showNotification({
+                text:"Se agregó a favoritos",
+                error:false
+            })
         }
         createRecipesSlice(set,get, api).closeModal() //Puedes consumir los datos de otro slide
         console.log(get().favorites)

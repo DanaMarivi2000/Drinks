@@ -43,3 +43,10 @@ export const itemAdd=recipeDetailsSchemaObject.extend({
 })
 
 export const recipeDetailsSchema=z.array(recipeDetailsSchemaObject)
+
+
+export const NotificationSchema=z.object({
+    text:z.string(),
+    error:z.boolean(),
+    show:z.boolean(),
+})

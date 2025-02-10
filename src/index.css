@@ -226,5 +226,13 @@
        transform: rotate(360deg) translateY(-200%);
     }
  }
+ .error, .success{
+    height: 1rem;
+    width:1rem;
+    color: red;
+ }
+ .success{
+    color:green;
+ }
 
 @import "tailwindcss";

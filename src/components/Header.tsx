@@ -16,7 +16,7 @@ const Header = () => {
   });
 
   const [alert, setAlert]=useState('')
-
+  const {showNotification}=useAppStore()
   useEffect(()=>{
     fetchDrinks()
   },[])
@@ -32,7 +32,10 @@ const Header = () => {
       event.preventDefault();
 
       if(Object.values(values).includes("")){
-        setAlert('Todos los campos son requeridos')
+        showNotification({
+          text:"Todos los campos son obligatorios",
+          error:true,
+        })
         return
       }
 
